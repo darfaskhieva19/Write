@@ -1,0 +1,56 @@
+﻿<Page x:Class="WriteErase.pages.PageAuto"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WriteErase.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageAuto">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" Text="Авторизация" FontSize="20" FontWeight="Bold" Margin="0 0 0 5"/>
+            <GroupBox Header="Введите логин" Width="250">
+                <TextBox Name="tbLogin"/>
+            </GroupBox>
+            <GroupBox Header="Введите пароль" Width="250">
+                <PasswordBox Name="tbPassword" />
+            </GroupBox>
+            <Button Margin="0 15 0 5" Name="btAuto" Content="Войти" Width="150" Click="tbAuto_Click"/>
+            <StackPanel Name="spCode" Visibility="Collapsed">
+                <TextBlock Name="tbTime"/>                
+            </StackPanel>
+            <Button Name="tbGuest" Content="Войти как гость" Width="150" Height="35" Click="tbGuest_Click"/>
+        </StackPanel>
+
+        <!--<StackPanel VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Авторизация" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <GroupBox Header="Логин">
+                    <TextBox Name="tbLogin"/>
+                </GroupBox>
+                <GroupBox Header="Пароль">
+                    <PasswordBox Name="tbPassword"/>
+                </GroupBox>
+                <Button Name="btAuto" Content="Авторизоваться" Width="200" Height="35" Click="tbAuto_Click"/>
+
+                <StackPanel Name="spCaptcha" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                    <Border Name="borderCap" BorderBrush="Black" BorderThickness="1" Margin="0 10 0 0" Width="275" Height="85">
+                        <Canvas Name="CCaptcha" Width="270" Height="80" Background="AliceBlue"/>
+                    </Border>
+                    <StackPanel>
+                        <GroupBox Header="Введите текст с картинки" Margin="0 5 0 0">
+                            <TextBox Name="tbCaptcha" TextChanged="tbCaptcha_TextChanged"/>
+                        </GroupBox>
+                    </StackPanel>
+                    <TextBlock Name="tbTime"/>
+                </StackPanel>
+
+               
+            </StackPanel>
+        </StackPanel>-->
+    </Grid>
+</Page>
