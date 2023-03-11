@@ -12,7 +12,7 @@
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="1*"/>
@@ -98,7 +98,7 @@
         </ListView>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal">
-            <Button Name="btnZakaz" Content="Просмотр заказа" Click="btnZakaz_Click" Visibility="Collapsed"/>
+            <Button Name="btnZakaz" Content="Просмотр заказа" Click="btnZakaz_Click" />
         </StackPanel>
         
     </Grid>

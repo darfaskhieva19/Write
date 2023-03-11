@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace WriteErase
 {
@@ -12,29 +13,58 @@ namespace WriteErase
         {
             get
             {
-                return "Номер заказа: " + " ";
+                return "Номер заказа: " + OrderID;
             }
         }
-        public string SostavOrder
+        public string OrderS
         {
             get
             {
-                return "";
+                string str = "Состав заказа: ";
+                List<OrderProduct> products = DataBase.Base.OrderProduct.Where(z=>z.OrderID == OrderID).ToList();   
+                foreach(OrderProduct prod in products)
+                {
+                    Product product = DataBase.Base.Product.FirstOrDefault(z=>z.ProductArticleNumber==prod.ProductArticleNumber);
+                    str += product.TitleProduct.TitleProduct1 + ", ";
+                }
+                return str.Substring(0, str.Length - 2);
             }
         }
-        public string Date
-        {
-            get
-            {
-                return "Дата заказа: " + OrderDate;
-            }
-        }
+        //public double Summ //общая сумма заказа
+        //{
+        //    get
+        //    {
+        //        List<>
+        //    }
+        //}
         public string FIOClient //вывод ФИО клиента
         {
             get
             {
-                return OrderClient;
+                if(OrderClient != null)
+                {
+                    return "Клиент: " + OrderClient;
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
+        //public SolidColorBrush Color
+        //{
+        //    get
+        //    {
+        //        if ()
+        //        {
+        //            SolidColorBrush solid = new SolidColorBrush(Color.FromRgb(127, 255, 0));
+        //            return solid;
+        //        }
+        //        else
+        //        {
+        //            return Brushes.White;
+        //        }
+        //    }
+        //}
     }
 }

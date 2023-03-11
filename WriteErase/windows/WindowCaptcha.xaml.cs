@@ -26,7 +26,7 @@ namespace WriteErase
         {
             InitializeComponent();            
             Random random = new Random();
-            string sym = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            string sym = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             string[] ch = new string[4];
             for (int i = 0; i < 10; i++)
             {
@@ -50,7 +50,7 @@ namespace WriteErase
             {
                 Text = (string)ch[0].ToString(),
                 TextDecorations = TextDecorations.Strikethrough,
-                FontSize = random.Next(14, 18),
+                FontSize = random.Next(18, 22),
                 FontFamily = new FontFamily("Comic Sans MS"),
                 FontWeight = FontWeights.Bold,
                 FontStyle = FontStyles.Italic,

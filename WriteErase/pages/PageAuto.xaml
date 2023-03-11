@@ -17,11 +17,11 @@
             <GroupBox Header="Введите пароль" Width="250">
                 <PasswordBox Name="tbPassword" />
             </GroupBox>
-            <Button Margin="0 15 0 5" Name="btAuto" Content="Войти" Width="150" Click="tbAuto_Click"/>
+            <Button Margin="0 15 0 5" Name="btAuto" Content="Войти" Click="tbAuto_Click" Template="{StaticResource Btn}"/>
             <StackPanel Name="spCode" Visibility="Collapsed">
                 <TextBlock Name="tbTime"/>                
             </StackPanel>
-            <Button Name="tbGuest" Content="Войти как гость" Width="150" Height="35" Click="tbGuest_Click"/>
+            <Button Name="tbGuest" Content="Войти как гость" Click="tbGuest_Click" Template="{StaticResource Btn}"/>
         </StackPanel>
 
         <!--<StackPanel VerticalAlignment="Center">

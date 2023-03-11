@@ -47,10 +47,13 @@ namespace WriteErase.pages
             switch (cbSort.SelectedIndex)
             {
                 case 1:
-                    listFilter = listFilter.OrderBy(z=>z.NewCost).ToList();                      
+                    //listFilter = listFilter.OrderBy(z=>z.NewCost).ToList();
+                    listFilter.Sort((x,y)=>x.ProductCost.CompareTo(y.ProductCost));
                     break;
                 case 2:
-                    listFilter = listFilter.OrderByDescending(z => z.NewCost).ToList();
+                    //listFilter = listFilter.OrderByDescending(z => z.NewCost).ToList();
+                    listFilter.Sort((x, y) => x.ProductCost.CompareTo(y.ProductCost));
+                    listFilter.Reverse();
                     break;
             }
 
@@ -99,8 +102,7 @@ namespace WriteErase.pages
 
         private void btnZakaz_Click(object sender, RoutedEventArgs e)
         {
-            //windows.WindowOrder order = new windows.WindowOrder();
-            //order.ShowDialog();
+            ClassFrame.frameL.Navigate(new pages.ListOfOrder());
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
