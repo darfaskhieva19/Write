@@ -70,6 +70,7 @@
     <Compile Include="City.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="classes\ClassOrder.cs" />
     <Compile Include="Manufacturer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -86,6 +87,9 @@
     </Compile>
     <Compile Include="OrderStatus.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pages\ListOfOrder.xaml.cs">
+      <DependentUpon>ListOfOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="PickupPoint.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -108,8 +112,11 @@
     <Compile Include="User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="WindowCaptcha.xaml.cs">
+    <Compile Include="windows\WindowCaptcha.xaml.cs">
       <DependentUpon>WindowCaptcha.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="windows\WindowOrder.xaml.cs">
+      <DependentUpon>WindowOrder.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +133,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="pages\ListOfOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pages\ListOfTovar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,7 +145,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowCaptcha.xaml">
+    <Page Include="windows\WindowCaptcha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\WindowOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -50,7 +50,7 @@ namespace WriteErase
         {
             get
             {
-                return "Скидка " + ProductDiscountMax + " %";
+                return "Скидка " + ProductDiscountAmount + " %";
             }
         }
         public string Price //вывод цены

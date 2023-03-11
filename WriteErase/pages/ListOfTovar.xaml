@@ -18,7 +18,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-            <TextBlock Name="tbFIO" Grid.Row="0"  HorizontalAlignment="Right" VerticalAlignment="Center"/>           
+            <TextBlock Name="tbFIO" Grid.Row="0"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 30 0"/>           
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -30,7 +30,7 @@
 
             <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <GroupBox Header="Сортировка" Width="185">
-                    <ComboBox Name="cbSort" SelectionChanged="cbSort_SelectionChanged" Width="170" Height="30">
+                    <ComboBox Name="cbSort" SelectionChanged="cbSort_SelectionChanged" Width="170" Height="33">
                         <ComboBoxItem Content="Без сортировки"/>
                         <ComboBoxItem Content="По возрастанию"/>
                         <ComboBoxItem Content="По убыванию"/>
@@ -40,7 +40,7 @@
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <GroupBox Header="Скидка" Width="185">
-                    <ComboBox Name="cbFilter" SelectionChanged="cbFilter_SelectionChanged" Width="170" Height="30" Margin="0 5 0 0">
+                    <ComboBox Name="cbFilter" SelectionChanged="cbFilter_SelectionChanged" Width="170" Height="33" Margin="0 5 0 0">
                         <ComboBoxItem Content="Все диапазоны"/>
                         <ComboBoxItem Content="от 0% до 9,99%"/>
                         <ComboBoxItem Content="от 10% до 14,99%"/>
@@ -50,8 +50,8 @@
             </StackPanel>
 
             <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <GroupBox Header="Поиск товаров" Width="185">
-                    <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged" Height="30" Width="170"/>
+                <GroupBox Header="Поиск товаров" Width="195">
+                    <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged" Height="30" Width="180"/>
                 </GroupBox>
             </StackPanel>
 
@@ -90,6 +90,16 @@
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить к заказу" Click="MenuItem_Click"/>
+                </ContextMenu>
+                </ListBox.ContextMenu>
         </ListView>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button Name="btnZakaz" Content="Просмотр заказа" Click="btnZakaz_Click" Visibility="Collapsed"/>
+        </StackPanel>
+        
     </Grid>
 </Page>

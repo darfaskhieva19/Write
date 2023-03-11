@@ -1,0 +1,22 @@
+﻿<Window x:Class="WriteErase.windows.WindowOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WriteErase.windows"
+        mc:Ignorable="d"
+        Title="Формирование заказа" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Просмотр заказа" Style="{StaticResource txtHeader}"/>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Name="tbFIO" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 30 0"/>
+        </StackPanel>
+    </Grid>
+</Window>

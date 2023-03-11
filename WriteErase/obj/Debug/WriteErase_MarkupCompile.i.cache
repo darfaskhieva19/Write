@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\User\source\repos\WriteErase\WriteErase\obj\Debug\
+C:\Users\ФасхиеваДР\Source\Repos\Write\WriteErase\obj\Debug\
 WriteErase
 none
 false
 DEBUG;TRACE
-C:\Users\User\source\repos\WriteErase\WriteErase\App.xaml
-4-518149118
+C:\Users\ФасхиеваДР\Source\Repos\Write\WriteErase\App.xaml
+6-697593171
 2-1957146511
-28770796241
-18338480223
-MainWindow.xaml;pages\ListOfTovar.xaml;pages\PageAuto.xaml;WindowCaptcha.xaml;
+31-1762848292
+18563622509
+MainWindow.xaml;pages\ListOfOrder.xaml;pages\ListOfTovar.xaml;pages\PageAuto.xaml;windows\WindowCaptcha.xaml;windows\WindowOrder.xaml;
 
 True
 

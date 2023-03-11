@@ -47,10 +47,10 @@ namespace WriteErase.pages
             switch (cbSort.SelectedIndex)
             {
                 case 1:
-                    listFilter = listFilter.OrderByDescending(z=>z.NewCost).ToList();                      
+                    listFilter = listFilter.OrderBy(z=>z.NewCost).ToList();                      
                     break;
                 case 2:
-                    listFilter = listFilter.OrderBy(z => z.NewCost).ToList();
+                    listFilter = listFilter.OrderByDescending(z => z.NewCost).ToList();
                     break;
             }
 
@@ -97,12 +97,16 @@ namespace WriteErase.pages
             Filter();
         }
 
-        private void btnExit_Click(object sender, RoutedEventArgs e)
+        private void btnZakaz_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите выйти?", "Системное сообщение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
+            //windows.WindowOrder order = new windows.WindowOrder();
+            //order.ShowDialog();
+        }
 
-            }
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            windows.WindowOrder order = new windows.WindowOrder();
+            order.ShowDialog();
         }
     }
 }

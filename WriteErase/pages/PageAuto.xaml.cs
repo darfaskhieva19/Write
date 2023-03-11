@@ -65,17 +65,28 @@ namespace WriteErase.pages
         }
 
         private void tbAuto_Click(object sender, RoutedEventArgs e)
-        {     
-            User user = DataBase.Base.User.FirstOrDefault(z => z.UserLogin == tbLogin.Text && z.UserPassword == tbPassword.Password);
-            if (user == null)
+        {
+            if (tbLogin.Text == "" || tbPassword.Password == "")
             {
-                MessageBox.Show("Вы ввели данные неверно! Повторите вход!");
-                CAPTCHA();
+                MessageBox.Show("Не все обязательные поля заполнены!");
             }
             else
             {
-                ClassFrame.frameL.Navigate(new pages.ListOfTovar(user));                
-            }
+                User user = DataBase.Base.User.FirstOrDefault(z => z.UserLogin == tbLogin.Text && z.UserPassword == tbPassword.Password);
+                if (user == null)
+                {
+                    MessageBox.Show("Вы ввели данные неверно! Повторите вход!");
+                    CAPTCHA();
+                }
+                else
+                {
+                    switch (user.UserRole)
+                    {
+
+                    }
+                    ClassFrame.frameL.Navigate(new pages.ListOfTovar(user));
+                }
+            }           
         }
 
         public void CAPTCHA()
