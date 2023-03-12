@@ -81,7 +81,8 @@
                                     <TextBlock Text="Стоимость:"/>
                                     <TextBlock Text="{Binding Price}" TextDecorations="Strikethrough"/>
                                     <TextBlock Text="{Binding NewCost}" />
-                                </StackPanel>                                
+                                </StackPanel>
+                                <Button x:Name="btnDelete" Uid="{Binding ProductArticleNumber}" Content="Удалить" HorizontalAlignment="Left" Click="btnDelete_Click"  Loaded="btnDelete_Loaded" Visibility="Collapsed"/>
                             </StackPanel>
                             <StackPanel Grid.Column="2">
                                 <TextBlock Text="{Binding Disc}"/>
@@ -98,7 +99,8 @@
         </ListView>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal">
-            <Button Name="btnZakaz" Content="Просмотр заказа" Click="btnZakaz_Click" />
+            <Button Name="btnBack" Content="Вернуться" Click="btnBack_Click"/>
+            <Button Name="btnZakaz" Content="Просмотр заказа" Click="btnZakaz_Click" Visibility="Collapsed" HorizontalAlignment="Right"/>
         </StackPanel>
         
     </Grid>

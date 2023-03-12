@@ -21,6 +21,7 @@ namespace WriteErase.pages
     public partial class ListOfTovar : Page
     {
         List<Product> listFilter;
+        User user;
         public ListOfTovar()
         {
             InitializeComponent();
@@ -37,6 +38,10 @@ namespace WriteErase.pages
             cbSort.SelectedIndex = 0;
             cbFilter.SelectedIndex = 0;
             tbFIO.Text = " " + user.UserSurname + " " + user.UserName + " " + user.UserPatronymic;
+            if(user.Role.RoleName == "администратор" || user.Role.RoleName == "менеджер")
+            {
+                btnZakaz.Visibility = Visibility.Visible;
+            }
             Filter();
         }
         public void Filter()
@@ -109,6 +114,52 @@ namespace WriteErase.pages
         {
             windows.WindowOrder order = new windows.WindowOrder();
             order.ShowDialog();
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            ClassFrame.frameL.Navigate(new pages.PageAuto());
+        }
+
+        private void btnDelete_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Button btn = (Button)sender;
+                string index = btn.Uid;
+                Product product = DataBase.Base.Product.FirstOrDefault(z=>z.ProductArticleNumber == index);
+                List<OrderProduct> orderProducts = DataBase.Base.OrderProduct.Where(x => x.ProductArticleNumber == index).ToList();
+                if (orderProducts.Count == 0)
+                {
+                    foreach(OrderProduct OProducts in orderProducts)
+                    {
+                        DataBase.Base.OrderProduct.Remove(OProducts);
+                    }
+                    DataBase.Base.Product.Remove(product);
+                    DataBase.Base.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Товар невозможно удалить, потому что он есть в заказе!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так..");
+            }
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            if(user.Role.RoleName == "Менеджер" || user.Role.RoleName == "Администратор")
+            {
+               // btnDelete.Visibility = Visibility.Visible;
+            }
+            else
+            {
+               // btnDelete.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

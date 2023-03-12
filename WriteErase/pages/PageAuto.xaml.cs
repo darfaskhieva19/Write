@@ -23,12 +23,10 @@ namespace WriteErase.pages
     {
         DispatcherTimer timer = new DispatcherTimer();
         int time = 10;
-        string str = String.Empty;
-        int k;
         public PageAuto()
         {
-            InitializeComponent();  
-           
+            InitializeComponent();
+            tbLogin.Focus();
         }
         public PageAuto(int k)
         {
@@ -82,7 +80,18 @@ namespace WriteErase.pages
                 {
                     switch (user.UserRole)
                     {
-
+                        case 1: //клиент
+                            MessageBox.Show("Здравствуйте, " + user.UserName);
+                            ClassFrame.frameL.Navigate(new pages.ListOfTovar(user));
+                            break;
+                        case 2: //администратор
+                            MessageBox.Show("Здравствуйте, " + user.UserName);
+                            ClassFrame.frameL.Navigate(new pages.ListOfTovar(user));
+                            break;
+                        case 3: //менеджер
+                            MessageBox.Show("Здравствуйте, " + user.UserName);
+                            ClassFrame.frameL.Navigate(new pages.ListOfTovar(user));
+                            break;
                     }
                     ClassFrame.frameL.Navigate(new pages.ListOfTovar(user));
                 }
