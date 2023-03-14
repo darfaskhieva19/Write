@@ -64,7 +64,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Padding="1" CornerRadius="5" BorderThickness="0.5" BorderBrush="Black" >
-                        <Grid Name="gridM" Background="{Binding ColorDiscount}">
+                        <Grid Name="gridM">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1.5*"/>
                                 <ColumnDefinition Width="3.5*"/>
@@ -81,26 +81,26 @@
                                     <TextBlock Text="Стоимость:"/>
                                     <TextBlock Text="{Binding Price}" TextDecorations="Strikethrough"/>
                                     <TextBlock Text="{Binding NewCost}" />
-                                </StackPanel>
-                                <Button x:Name="btnDelete" Uid="{Binding ProductArticleNumber}" Content="Удалить" HorizontalAlignment="Left" Click="btnDelete_Click"  Loaded="btnDelete_Loaded" Visibility="Collapsed"/>
+                                </StackPanel>                               
                             </StackPanel>
                             <StackPanel Grid.Column="2">
                                 <TextBlock Text="{Binding Disc}"/>
                             </StackPanel>
+                            <Button Name="btnDelete" Uid="{Binding ProductArticleNumber}" Content="Удалить" HorizontalAlignment="Left" Click="btnDelete_Click"  Loaded="btnDelete_Loaded" Visibility="Collapsed"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <ListBox.ContextMenu>
+            <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Добавить к заказу" Click="MenuItem_Click"/>
                 </ContextMenu>
-                </ListBox.ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal">
-            <Button Name="btnBack" Content="Вернуться" Click="btnBack_Click"/>
-            <Button Name="btnZakaz" Content="Просмотр заказа" Click="btnZakaz_Click" Visibility="Collapsed" HorizontalAlignment="Right"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" >
+            <Button Name="btnBack" Content="Вернуться" Click="btnBack_Click" Template="{StaticResource Btn}"/>
+            <Button Name="btnZakaz" Content="Просмотр заказа" Click="btnZakaz_Click" Visibility="Collapsed" HorizontalAlignment="Right" Template="{StaticResource Btn}"/>
         </StackPanel>
         
     </Grid>

@@ -62,7 +62,6 @@ namespace WriteErase
             {
                 Text = (string)ch[1].ToString(),
                 FontSize = random.Next(14, 18),
-                TextDecorations = TextDecorations.Strikethrough,
                 FontFamily = new FontFamily("Comic Sans MS"),
                 FontWeight = FontWeights.Bold,
                 Margin = new Thickness(15),
@@ -84,12 +83,11 @@ namespace WriteErase
             TextBlock txt3 = new TextBlock()
             {
                 Text = (string)ch[3].ToString(),
-                FontSize = random.Next(14, 18),
-                TextDecorations = TextDecorations.Strikethrough,
+                FontSize = random.Next(14, 18),               
                 FontFamily = new FontFamily("Comic Sans MS"),
                 FontWeight = FontWeights.Bold,
                 Margin = new Thickness(15),
-                Padding = new Thickness(55)
+                Padding = new Thickness(65)
             };
             CCaptcha.Children.Add(txt3);
         }       

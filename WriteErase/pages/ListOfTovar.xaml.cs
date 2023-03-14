@@ -34,11 +34,12 @@ namespace WriteErase.pages
         public ListOfTovar(User user)
         {
             InitializeComponent();
+            this.user = user;
             ListT.ItemsSource = DataBase.Base.Product.ToList();
             cbSort.SelectedIndex = 0;
             cbFilter.SelectedIndex = 0;
             tbFIO.Text = " " + user.UserSurname + " " + user.UserName + " " + user.UserPatronymic;
-            if(user.Role.RoleName == "администратор" || user.Role.RoleName == "менеджер")
+            if(user.Role.RoleName == "Администратор" || user.Role.RoleName == "Менеджер")
             {
                 btnZakaz.Visibility = Visibility.Visible;
             }
@@ -123,15 +124,28 @@ namespace WriteErase.pages
 
         private void btnDelete_Loaded(object sender, RoutedEventArgs e)
         {
+            Button btnDel = sender as Button;
+            if (user.Role.RoleName == "Администратор" || user.Role.RoleName == "Менеджер")
+            {
+                btnDel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnDel.Visibility = Visibility.Collapsed;
+            }          
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
                 Button btn = (Button)sender;
                 string index = btn.Uid;
-                Product product = DataBase.Base.Product.FirstOrDefault(z=>z.ProductArticleNumber == index);
+                Product product = DataBase.Base.Product.FirstOrDefault(z => z.ProductArticleNumber == index);
                 List<OrderProduct> orderProducts = DataBase.Base.OrderProduct.Where(x => x.ProductArticleNumber == index).ToList();
                 if (orderProducts.Count == 0)
                 {
-                    foreach(OrderProduct OProducts in orderProducts)
+                    foreach (OrderProduct OProducts in orderProducts)
                     {
                         DataBase.Base.OrderProduct.Remove(OProducts);
                     }
@@ -146,19 +160,6 @@ namespace WriteErase.pages
             catch
             {
                 MessageBox.Show("Что-то пошло не так..");
-            }
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = sender as Button;
-            if(user.Role.RoleName == "Менеджер" || user.Role.RoleName == "Администратор")
-            {
-               // btnDelete.Visibility = Visibility.Visible;
-            }
-            else
-            {
-               // btnDelete.Visibility = Visibility.Collapsed;
             }
         }
     }
